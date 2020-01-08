@@ -33,5 +33,9 @@
 
   "TranslateJsonToXML": {
     "type"    : "python"
+  },
+
+  "TranslateXMLToJson": {
+    "type"    : "python"
   }
 }
