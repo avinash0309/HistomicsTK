@@ -101,7 +101,7 @@ def get_scale_factor_and_appendStr(gc, slide_id, MPP=None, MAG=None):
         If neither MPP or MAG is provided, everything is retrieved without
         scaling at base (scan) magnification.
 
-    Returns:
+    Returns
     ----------
     float
         how much smaller (0.1 means 10x smaller) is requested image
@@ -297,6 +297,12 @@ def parse_slide_annotations_into_tables(
     -----------
     slide_annotations : list of dicts
         response from server request
+
+    x_offset : int
+        offset to deduct from x coordinates
+
+    y_offset : int
+        offset to deduct from y coordinates
 
     Returns
     ---------
