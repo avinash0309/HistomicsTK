@@ -205,7 +205,7 @@ def get_rotated_rectangular_coords(
     roi_corners = rotate_point_list(roi_corners_false,
                                     rotation=roi_rotation,
                                     center=roi_center)
-    roi_corners = np.array(roi_corners)
+    roi_corners = np.array(roi_corners, dtype=np.int32)
 
     # pack into dict
     roi_info = {
@@ -285,7 +285,8 @@ def get_bboxes_from_slide_annotations(slide_annotations):
 # %%===========================================================================
 
 
-def parse_slide_annotations_into_tables(slide_annotations):
+def parse_slide_annotations_into_tables(
+        slide_annotations, x_offset=0, y_offset=0):
     """Given a slide annotation list, parse into convenient tabular format.
 
     If the annotation is a point, then it is just treated as if it is a
@@ -404,9 +405,7 @@ def parse_slide_annotations_into_tables(slide_annotations):
                     roi_rotation=element['rotation'])
                 xmin, ymin = roiinfo['x_min'], roiinfo['y_min']
                 xmax, ymax = roiinfo['x_max'], roiinfo['y_max']
-                coords = np.array(
-                    [(xmin, ymin), (xmax, ymin), (xmax, ymax),
-                     (xmin, ymax), (xmin, ymin)], dtype='int32')
+                coords = roiinfo['roi_corners']  # for rotated rectangles
                 if element['rotation'] != 0:
                     element['type'] = 'polyline'
 
@@ -419,6 +418,15 @@ def parse_slide_annotations_into_tables(slide_annotations):
 
             else:
                 continue
+
+            # account for user-specified offset if any
+            if (x_offset != 0) or (y_offset != 0):
+                coords[:, 0] = coords[:, 0] - x_offset
+                coords[:, 1] = coords[:, 1] - y_offset
+                xmin -= x_offset
+                xmax -= x_offset
+                ymin -= y_offset
+                ymax -= y_offset
 
             # parse to string for inclusion in pd dataframe
             x_coords, y_coords = _parse_coords_to_str(coords)
