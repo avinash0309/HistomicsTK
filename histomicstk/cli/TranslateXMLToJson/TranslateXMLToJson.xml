@@ -33,4 +33,8 @@
       <description>Output annotation file (*.anot) containing annotations, converting Aperio xml format to json</description>
     </file>
   </parameters>
+<<<<<<< HEAD
 </executable>
+=======
+</executable>
+>>>>>>> origin/master
