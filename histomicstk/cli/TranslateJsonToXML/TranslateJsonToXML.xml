@@ -33,8 +33,4 @@
       <description>Output annotation file (*.xml) containing annotations, this format can be used in Aperio. Once you download the file make this file (*.xml) rename it to input image file name</description>
     </file>
   </parameters>
-<<<<<<< HEAD
 </executable>
-=======
-</executable>
->>>>>>> origin/master
