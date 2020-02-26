@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<executable>
+  <category>HistomicsTK</category>
+  <title>Color Descriptor</title>
+  <description>For a given masks find out Color Mean and Standard Deviation</description>
+  <version>0.1.0</version>
+  <documentation-url>https://digitalslidearchive.github.io/HistomicsTK/</documentation-url>
+  <license>Apache 2.0</license>
+  <contributor>Avinash</contributor>
+  <acknowledgements>This work is part of the HistomicsTK project.</acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description>Input/output parameters.</description>
+    <image>
+      <name>inputImageFile</name>
+      <label>Input Image</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description>Input image</description>
+    </image>
+    <directory>
+      <name>inputDirectory</name>
+      <longflag>inputDirectory</longflag>
+      <description><![CDATA[An output directory. If no default is specified, the current directory is used,]]></description>
+      <label>Input directory</label>
+      <channel>input</channel>
+      <index>1</index>
+    </directory>
+    <file fileExtensions=".csv">
+      <name>outputDescriptorFile</name>
+      <label>Output Color Descriptor</label>
+      <channel>output</channel>
+      <index>2</index>
+      <description>output color descriptor will be saved in .csv file</description>
+    </file>
+  </parameters>
+</executable>
