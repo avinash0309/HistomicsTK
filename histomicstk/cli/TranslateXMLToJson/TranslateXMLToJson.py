@@ -105,8 +105,5 @@ def main(args):
 
 
 if __name__ == "__main__":
-<<<<<<< HEAD
     main(CLIArgumentParser().parse_args())
-=======
-    main(CLIArgumentParser().parse_args())
->>>>>>> origin/master
+
