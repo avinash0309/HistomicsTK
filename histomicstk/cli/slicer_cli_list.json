@@ -37,5 +37,5 @@
   
   "TranslateXMLToJson": {
     "type"    : "python"
-  },
+  }
 }
