@@ -21,7 +21,7 @@
     <directory>
       <name>inputDirectory</name>
       <longflag>inputDirectory</longflag>
-      <description><![CDATA[An output directory. If no default is specified, the current directory is used,]]></description>
+      <description><![CDATA[An input directory. If no default is specified, the current directory is used,]]></description>
       <label>Input directory</label>
       <channel>input</channel>
       <index>1</index>
